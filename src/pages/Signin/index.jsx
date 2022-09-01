@@ -5,12 +5,15 @@ import Button from '../../components/Button';
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from '../../hooks/useAuth.js';
 import { useState } from 'react';
+import Logo from '../../components/Logo';
 
 const Signin = () => {
 
     const { signin } = useAuth();
     const navigate = useNavigate();
 
+    const [nascimento, setNascimento] = useState("");
+    const [instituicao, setInstituicao] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [error, setError] = useState("");
@@ -21,7 +24,7 @@ const Signin = () => {
             return;
         }
 
-        const res = signin(email, senha);
+        const res = signin(nascimento, instituicao, email, senha);
 
         if (res) {
             setError(res);
@@ -33,23 +36,48 @@ const Signin = () => {
 
     return (
         <C.Container>
-            <C.Label>MINDSET STUDENT</C.Label>
+
+            <Logo />
+            
+            <C.FormHeader>
+                <C.Title>MINDSET <C.Highlight>STUDENT</C.Highlight></C.Title>
+                <C.Apresentation>Bem-vindo(a) de volta, por favor entre na sua conta.</C.Apresentation>
+            </C.FormHeader>
             <C.Content>
                 <C.Line>
-                    <Input 
-                        type="email"
-                        placeholder="Nascimento"
-                        value={email}
-                        onChange={(e) => [setEmail(e.target.value), setError("")]}
+                    <Input
+                        LabelText="Nascimento"
+                        type="number"
+                        placeholder="00-00-0000"
+                        value={nascimento}
+                        onChange={(e) => [setNascimento(e.target.value), setError("")]}
                     />
 
                     <Input 
-                        type="password"
-                        placeholder="Cód. Instituição"
-                        value={senha}
-                        onChange={(e) => [setSenha(e.target.value), setError("")]}
+                        LabelText="Cód. Instituição"
+                        type="number"
+                        placeholder="000"
+                        value={instituicao}
+                        onChange={(e) => [setInstituicao(e.target.value), setError("")]}
                     />
                 </C.Line>
+
+                <Input
+                    LabelText="Email"
+                    type="email"
+                    placeholder="test@test.com"
+                    value={email}
+                    onChange={(e) => [setEmail(e.target.value), setError("")]}
+                />
+
+                <Input 
+                    LabelText="Senha"
+                    type="password"
+                    placeholder="********"
+                    value={senha}
+                    onChange={(e) => [setSenha(e.target.value), setError("")]}
+                />
+
 
                 <C.LabelError>{ error }</C.LabelError>
 

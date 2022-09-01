@@ -1,8 +1,38 @@
 import React from 'react'
+import * as C from "./styles";
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from '../../hooks/useAuth.js';
+import { useState } from 'react';
 
-const index = () => {
+const SignUp = () => {
   
-  
+    const { signin } = useAuth();
+    const navigate = useNavigate();
+
+    const [nascimento, setNascimento] = useState("");
+    const [instituicao, setInstituicao] = useState("");
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const [error, setError] = useState("");
+
+    const handleLogin = () => {
+        if (!email | !senha) {
+            setError("Preencha todos os campos!");
+            return;
+        }
+
+        const res = signin(nascimento, instituicao, email, senha);
+
+        if (res) {
+            setError(res);
+            return;
+        }
+
+        navigate("/home");
+    };
+
     return (
     <C.Container>
     <C.Label>MINDSET STUDENT</C.Label>
@@ -29,4 +59,4 @@ const index = () => {
   )
 }
 
-export default index
+export default SignUp;

@@ -3,10 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Home from "../pages/Home";
 import Signin from "../pages/Signin";
+import SignUp from "../pages/SignUp";
 
 const Private = ({ Item }) => {
     const { signed } = useAuth();
-    return signed > 0 ? <Item /> : <Signin />;
+    return signed > 0 ? <Item /> : <SignUp />;
 }
 
 const RoutesApp = () => {

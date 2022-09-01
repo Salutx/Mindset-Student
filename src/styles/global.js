@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
 
 :root {
     --primary-color: #00CDB4;
+    --primary-color-dark: #426C64;
 }
 
 * {
@@ -15,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
 body {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 `;
