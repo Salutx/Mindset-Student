@@ -36,7 +36,7 @@ const SignUp = () => {
 
     return (
     <C.Container>
-    <C.Label>MINDSET STUDENT</C.Label>
+    <C.Label>CADASTRAR USUÁRIOS</C.Label>
     <C.Content>
             <Input
                 LabelText="Nascimento"
