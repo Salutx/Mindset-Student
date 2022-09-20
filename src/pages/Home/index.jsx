@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from '../../components/Button';
 import Logo from '../../components/Logo';
+import VerticalMenu from '../../components/VerticalMenu';
 import useAuth from '../../hooks/useAuth';
 import * as C from "./styles.js";
 import "./styled.css";
@@ -13,15 +14,8 @@ const Home = () => {
 	
 	return (
 		<div className='content'>
-			<div className='menu'>
-				<div className='menu-logo'>
-					<Logo />
-				</div>
-
-				<div className='menu-item'>
-				<FontAwesomeIcon icon="fa-solid fa-house" />
-				</div>
-			</div>
+			
+			<VerticalMenu />
 
 			<C.Main>
 				<C.Title>Home</C.Title>
