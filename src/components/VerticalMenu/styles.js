@@ -5,8 +5,124 @@ export const VerticalMenu = styled.aside `
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 90px;
-    background-color: blue;
+    width: 250px;
+    background-color: white;
     height: 100%;
 
-`
+`;
+
+export const NavLogo = styled.div `
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: .7rem 1rem;
+    gap: 1rem;
+    font-size: .8rem;
+    text-transform: uppercase;
+    color: var(--secundary-color);
+    letter-spacing: .08rem;
+
+    img {
+        line-height: 0;
+        width: 32px;
+        height: 32px;
+    }
+
+`;
+
+export const NavDivider = styled.div `
+
+    width: 100%;
+    height: 1px;
+    background-color: #c3c3c341;
+
+`;
+
+export const JustifySpacebetween = styled.div `
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+`;
+
+export const NavContainer = styled.div `
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0.6rem 1rem;
+
+`;
+
+export const NavSection = styled.div ``;
+
+export const NavHeader = styled.p `
+
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.7rem;
+    margin: 0 !important;
+    padding: .8rem 0;
+    color: var(--secundary-color);
+
+`;
+
+export const NavMenu = styled.div `
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+
+`;
+
+export const NavItem = styled.div `
+
+    a {
+        padding: .3rem 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+        border-radius: 4px;
+        font-size: .8rem;
+        color: ${props => props.status ? "var(--primary-color)" : "var(--secundary-color)" };
+        background-color: ${props => props.status ? "#00cdb51e" : "transparent" };;
+    }
+
+    a > i {
+        color: ${props => props.status ? "var(--primary-color)" : "var(--secundary-color)" };
+        font-size: 22px;
+    }
+
+`;
+
+export const NavUser = styled.div `
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .7rem 1rem;
+    gap: 1rem;
+    font-size: .8rem;
+
+    img {
+        width: 32px;
+        height: 32px;
+    }
+
+`;
+
+export const UserDetails = styled.div `
+
+    display: flex;
+    flex-direction: column;
+    color: var(--secundary-color);
+
+    p {margin: 0 !important;};
+    p:last-child {color: var(--primary-color)};
+`;

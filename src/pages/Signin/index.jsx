@@ -5,7 +5,7 @@ import Button from '../../components/Button';
 import { useNavigate } from "react-router-dom";
 import useAuth from '../../hooks/useAuth.js';
 import { useState } from 'react';
-import Logo from '../../components/Logo';
+import Logo from '../../assets/images/Logo.svg';
 
 const Signin = () => {
 
@@ -31,13 +31,13 @@ const Signin = () => {
             return;
         }
 
-        navigate("/home");
+        navigate("/inicio");
     };
 
     return (
         <C.Container>
 
-            <Logo />
+            <img src={ Logo } alt="" />
             
             <C.FormHeader>
                 <C.Title>MINDSET <C.Highlight>STUDENT</C.Highlight></C.Title>

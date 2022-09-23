@@ -33,9 +33,8 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const signup = (nascimento, instituicao, email, senha) => {
+    const signup = (nascimento, instituicao, email, senha, nome) => {
         const usersStorage = JSON.parse(localStorage.getItem("users_db"));
-
         const hasUser = usersStorage?.filter((user) => user.email === email);
 
         if (hasUser?.length) {

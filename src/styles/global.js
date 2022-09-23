@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
 :root {
     --primary-color: #00CDB4;
     --primary-color-dark: #426C64;
+    --secundary-color: #9799B0;
 }
 
 * {
@@ -17,6 +18,11 @@ const GlobalStyle = createGlobalStyle`
 body {
     width: 100vw;
     min-height: 100vh;
+}
+
+a {
+    transition: all .3s;
+    :hover {color: var(--primary-color);}
 }
 
 `;
