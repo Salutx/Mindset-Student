@@ -5,7 +5,7 @@ export const VerticalMenu = styled.aside `
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 250px;
+    min-width: 205px;
     background-color: white;
     height: 100%;
 
@@ -16,17 +16,17 @@ export const NavLogo = styled.div `
     width: 100%;
     display: flex;
     align-items: center;
-    padding: .7rem 1rem;
-    gap: 1rem;
-    font-size: .8rem;
+    padding: 0 1.2rem;
+    height: 55px;
+    gap: 1.3rem;
+    font-size: .75rem;
     text-transform: uppercase;
     color: var(--secundary-color);
-    letter-spacing: .08rem;
 
     img {
         line-height: 0;
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
     }
 
 `;

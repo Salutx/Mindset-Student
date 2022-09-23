@@ -36,6 +36,12 @@ const VerticalMenu = () => {
 							</C.NavItem>
 							<C.NavItem>
 								<a href="#">
+									<i class="ri-team-line"></i>
+									<p>Equipes</p>
+								</a>
+							</C.NavItem>
+							<C.NavItem>
+								<a href="#">
 									<i className="ri-calendar-todo-line"></i>
 									<p>Agenda</p>
 								</a>
@@ -78,8 +84,8 @@ const VerticalMenu = () => {
 				<C.NavUser>
 					<img src={ AvatarExample } alt="" />
 					<C.UserDetails>
-						<p><b>{userName[0].nome}</b></p>
-						<p>Aluno</p>
+						<p>Mary Jane</p>
+						<p>Aluno(a)</p>
 					</C.UserDetails>
 				</C.NavUser>
 			</C.JustifySpacebetween>

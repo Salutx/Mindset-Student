@@ -5,6 +5,7 @@ import VerticalMenu from '../../components/VerticalMenu';
 import useAuth from '../../hooks/useAuth';
 import * as C from "./styles.js";
 import "./styled.css";
+import Header from '../../components/Header';
 
 const Home = () => {
 	
@@ -17,9 +18,11 @@ const Home = () => {
 			<VerticalMenu />
 
 			<C.Main>
+				<Header />
+				
 				<C.Title>Home</C.Title>
 				<Button Text={"Sair"} onClick={() => [signout(), navigate("/")]}>
-			Sair
+					Sair
 				</Button>
 			</C.Main>
 
