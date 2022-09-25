@@ -8,14 +8,7 @@ const VerticalMenu = () => {
 
 	const navigate = useNavigate();
 
-	function urlCheck ( check ) {
-		var urlName = check;
-	
-		if(window.location.href.indexOf(check) > -1) {
-			console.log(`Tem ${check}`); 
-			return "active";
-		}
-	}
+	function urlCheck ( check ) {if(window.location.href.indexOf(check) > -1) {return "active";}}
 
   	return (
 		<C.VerticalMenu>
@@ -32,7 +25,7 @@ const VerticalMenu = () => {
 						<C.NavHeader>Navegação</C.NavHeader>
 						<C.NavMenu>
 							<C.NavItem status={urlCheck("inicio")}>
-								<button  onClick={() => navigate("/inicio")}>
+								<button onClick={() => navigate("/inicio")}>
 									<i className="ri-home-2-line"></i>
 									<p>Início</p>
 								</button>

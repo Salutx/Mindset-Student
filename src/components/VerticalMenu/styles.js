@@ -94,7 +94,7 @@ export const NavItem = styled.div `
         border-radius: 4px;
         font-size: .8rem;
         color: ${props => props.status ? "var(--primary-color)" : "var(--secundary-color)"};
-        background-color: ${props => props.status ? "#00cdb51e" : "transparent" };
+        background-color: ${props => props.status ? "var(--primary-color-opacity)" : "transparent" };
         cursor: pointer;
     }
 

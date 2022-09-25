@@ -2,14 +2,13 @@ import styled from "styled-components";
 
 export const Header = styled.header `
 
-    height: 51px;
+    height: 52px;
     background-color: white;
 
 `
 
 export const Container = styled.div `
 
-    max-width: 1100px;
     height: 100%;
     margin: 0 auto;
     padding: 0 1rem;
@@ -69,7 +68,7 @@ export const NavbarSearch = styled.div `
         border: none;
         background-color: transparent;
         font-size: .7rem;
-        width: 300px;
+        width: 500px;
     }
 
     input::placeholder {

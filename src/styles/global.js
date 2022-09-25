@@ -5,7 +5,8 @@ const GlobalStyle = createGlobalStyle`
     :root {
         --primary-color: #00CDB4;
         --primary-color-dark: #426C64;
-        --primary-color-opacity: #F9FDFD;
+        --primary-color-opacity: #00cdb51e;
+        --title-color: #426C64;
         --secundary-color: #9799B0;
     }
 
@@ -51,9 +52,10 @@ export const Main = styled.main `
 export const Section = styled.section `
 
     width: 100%;
-    height: calc(100% - 51px);
-    padding: 2rem;
-    background-color: yellow;
+    max-height: calc(100% - 52px);
+    padding: 1.5rem;
+    background-color: #F3F2F7;
+    overflow: auto;
 
 `;
 
