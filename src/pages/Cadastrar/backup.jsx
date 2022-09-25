@@ -23,14 +23,14 @@ const SignUp = () => {
             setError("Preencha todos os campos");
             return;
         }
-        
+      
         const res = signup(nascimento, instituicao, email, senha, nome);
-        
+      
         if (res) {
             setError(res);
             return;
         }
-        
+      
           alert("Usuário cadastrado com sucesso!");
           navigate("/");
     };

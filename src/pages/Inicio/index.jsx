@@ -1,33 +1,24 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
-import Button from '../../components/Button';
 import VerticalMenu from '../../components/VerticalMenu';
-import useAuth from '../../hooks/useAuth';
 import * as C from "./styles.js";
-import "./styled.css";
+import * as G from "../../styles/global"
 import Header from '../../components/Header';
 
-const Home = () => {
-	
-	const { signout } = useAuth();
-	const navigate = useNavigate();
+const Inicio = () => {
 	
 	return (
-		<div className='content'>
-			
+
+		<G.Content>
 			<VerticalMenu />
-
-			<C.Main>
+			<G.Main>
 				<Header />
-				
-				<C.Title>Home</C.Title>
-				<Button Text={"Sair"} onClick={() => [signout(), navigate("/")]}>
-					Sair
-				</Button>
-			</C.Main>
+				<G.Section>
+                    <p>Início</p>
+                </G.Section>
+			</G.Main>
+		</G.Content>
 
-		</div>
-		)
-	}
+	)
+}
 	
-	export default Home;
+export default Inicio;

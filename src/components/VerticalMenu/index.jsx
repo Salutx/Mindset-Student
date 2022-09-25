@@ -1,12 +1,21 @@
 import React from 'react';
 import Logo from '../../assets/images/Logo.svg';
 import AvatarExample from '../../assets/images/avatarexample.png';
+import { useNavigate } from "react-router-dom";
 import * as C from "./styles.js";
 
 const VerticalMenu = () => {
 
-	const userName = JSON.parse(localStorage.getItem("users_db"));
-	console.log(userName[0]);
+	const navigate = useNavigate();
+
+	function urlCheck ( check ) {
+		var urlName = check;
+	
+		if(window.location.href.indexOf(check) > -1) {
+			console.log(`Tem ${check}`); 
+			return "active";
+		}
+	}
 
   	return (
 		<C.VerticalMenu>
@@ -22,42 +31,41 @@ const VerticalMenu = () => {
 					<C.NavSection>
 						<C.NavHeader>Navegação</C.NavHeader>
 						<C.NavMenu>
-							<C.NavItem status="actived">
-								<a href="#">
+							<C.NavItem status={urlCheck("inicio")}>
+								<button  onClick={() => navigate("/inicio")}>
 									<i className="ri-home-2-line"></i>
 									<p>Início</p>
-								</a>
+								</button>
 							</C.NavItem>
-							<C.NavItem>
-								<a href="#">
+							<C.NavItem status={urlCheck("tarefas")}>
+								<button>
 									<i className="ri-file-list-3-line"></i>
 									<p>Tarefas</p>
-								</a>
+								</button>
 							</C.NavItem>
-							<C.NavItem>
-								<a href="#">
-									<i class="ri-team-line"></i>
+							<C.NavItem status={urlCheck("equipes")}>
+								<button onClick={() => navigate("/equipes")}>
+									<i className="ri-team-line"></i>
 									<p>Equipes</p>
-								</a>
+								</button>
 							</C.NavItem>
-							<C.NavItem>
-								<a href="#">
+							<C.NavItem status={urlCheck("agenda")}>
+								<button>
 									<i className="ri-calendar-todo-line"></i>
 									<p>Agenda</p>
-								</a>
+								</button>
 							</C.NavItem>
-							<C.NavItem>
-								<a href="#">
+							<C.NavItem status={urlCheck("boletim")}>
+								<button>
 									<i className="ri-pie-chart-2-line"></i>
 									<p>Boletim</p>
-								</a>
+								</button>
 							</C.NavItem>
-
-							<C.NavItem>
-								<a href="#">
+							<C.NavItem status={urlCheck("avisos")}>
+								<button>
 									<i className="ri-inbox-line"></i>
 									<p>Avisos</p>
-								</a>
+								</button>
 							</C.NavItem>
 						</C.NavMenu>
 					</C.NavSection>
@@ -65,17 +73,17 @@ const VerticalMenu = () => {
 					<C.NavSection>
 						<C.NavHeader>Área do Usuário</C.NavHeader>
 						<C.NavMenu>
-							<C.NavItem>
-								<a href="#">
+							<C.NavItem status={urlCheck("boletim")}>
+								<button>
 									<i className="ri-community-line"></i>
 									<p>Organização</p>
-								</a>
+								</button>
 							</C.NavItem>
-							<C.NavItem>
-								<a href="#">
+							<C.NavItem status={urlCheck("boletim")}>
+								<button>
 									<i className="ri-user-line"></i>
 									<p>Perfil</p>
-								</a>
+								</button>
 							</C.NavItem>
 						</C.NavMenu>
 					</C.NavSection>

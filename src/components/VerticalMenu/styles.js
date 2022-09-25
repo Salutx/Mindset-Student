@@ -46,6 +46,7 @@ export const JustifySpacebetween = styled.div `
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow-y: auto;
 
 `;
 
@@ -83,18 +84,21 @@ export const NavMenu = styled.div `
 
 export const NavItem = styled.div `
 
-    a {
+    button {
         padding: .3rem 0.8rem;
         display: flex;
         align-items: center;
         gap: .8rem;
+        border: none;
+        width: 100%;
         border-radius: 4px;
         font-size: .8rem;
-        color: ${props => props.status ? "var(--primary-color)" : "var(--secundary-color)" };
-        background-color: ${props => props.status ? "#00cdb51e" : "transparent" };;
+        color: ${props => props.status ? "var(--primary-color)" : "var(--secundary-color)"};
+        background-color: ${props => props.status ? "#00cdb51e" : "transparent" };
+        cursor: pointer;
     }
 
-    a > i {
+    button > i {
         color: ${props => props.status ? "var(--primary-color)" : "var(--secundary-color)" };
         font-size: 22px;
     }
