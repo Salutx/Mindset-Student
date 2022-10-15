@@ -1,6 +1,9 @@
+import React from 'react'
 import { useNavigate } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
+import GlobalStyle from '../../styles/global';
 import * as C from "./styles.js";
+import { useThemeContext } from '../../contexts/theme';
 
 const Navbar = () => {
 
@@ -12,6 +15,8 @@ const Navbar = () => {
     const { signout } = useAuth();
 	const navigate = useNavigate();
 
+    const { changeTheme } = useThemeContext();
+
     return (
         <C.Header>
             <C.Container>
@@ -21,6 +26,8 @@ const Navbar = () => {
                         <p>{urlNameCheck()}</p>
                     </C.Breadcrumb>
                     
+                    <GlobalStyle />
+
                     <C.SearchContainer>
                         <C.NavbarSearch>
                             <a>
@@ -33,20 +40,20 @@ const Navbar = () => {
                             </a>
                         </C.NavbarSearch>
                         <C.NavbarTools>
-                            <a>
+                            <button>
                                 <i className="ri-notification-2-line"></i>
-                            </a>
-                            <a>
+                            </button>
+                            <button onClick={changeTheme}>
                                 <i className="ri-moon-line"></i>
-                            </a>
+                            </button>
                         </C.NavbarTools>
                     </C.SearchContainer>
 
                     <C.NavbarLogout>
-                        <a onClick={() => [signout(), navigate("/")]}>
+                        <button onClick={() => [signout(), navigate("/")]}>
                             Sair
                             <i className="ri-arrow-right-line"></i>
-                        </a>
+                        </button>
                     </C.NavbarLogout>
                 </C.Navbar>
             </C.Container>

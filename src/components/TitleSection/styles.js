@@ -15,7 +15,7 @@ export const Title = styled.div `
     align-items: center;
     gap: .8rem;
     font-weight: 500;
-    color: var(--title-color);
+    color: ${props => props.theme.title};
 
     i {
         background-color: var(--primary-color);
@@ -33,7 +33,7 @@ export const Link = styled.a `
     align-items: center;
     font-size: .9rem;
     cursor: pointer;
-    color: var(--title-color);
+    color: var(--secundary-color);
 
     i {
         font-size: 1.3rem;

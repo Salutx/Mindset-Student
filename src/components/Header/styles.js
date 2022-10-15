@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Header = styled.header `
 
     height: 52px;
-    background-color: white;
+    background-color: ${props => props.theme.body};
 
 `
 
@@ -51,7 +51,7 @@ export const NavbarSearch = styled.div `
 
     display: flex;
     align-items: center;
-    background-color: #F3F2F7;
+    background-color: ${props => props.theme.background};
     padding: .4rem;
     border-radius: 4px;
     overflow: hidden;
@@ -67,8 +67,9 @@ export const NavbarSearch = styled.div `
     input {
         border: none;
         background-color: transparent;
-        font-size: .7rem;
+        font-size: .8rem;
         width: 500px;
+        color: ${props => props.theme.title};
     }
 
     input::placeholder {
@@ -85,7 +86,8 @@ export const NavbarTools = styled.div `
     gap: .8rem;
     color: var(--secundary-color);
 
-    a {
+    button {
+        all: unset;
         cursor: pointer; 
         font-size: 16px;
         display: flex;
@@ -98,14 +100,13 @@ export const NavbarLogout = styled.div `
 
     flex: 0 0 0;
 
-    a {
+    button {
         font-size: .8rem;
         display: flex;
         align-items: center;
         gap: .3rem;
         border: none;
         background-color: transparent;
-        cursor: pointer;
         color: var(--secundary-color);
     }
 

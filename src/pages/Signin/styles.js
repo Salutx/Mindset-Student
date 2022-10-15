@@ -8,6 +8,25 @@ export const Container = styled.div `
     gap: 1rem;
     height: 100vh;
     background-color: white;
+
+`;
+
+export const Border = styled.div `
+
+    padding: 2rem 1rem;
+    border-radius: 16px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+
+    img {
+        width: 64px;
+        height: 64px;
+        margin-bottom: .5rem;
+    }
+
 `;
 
 export const Content = styled.div`
@@ -28,7 +47,7 @@ export const FormHeader = styled.div `
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: .5rem;
+    gap: 1rem;
 `;
 
 export const Apresentation = styled.p `

@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
+export default createGlobalStyle`
 
     :root {
         --primary-color: #00CDB4;
@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: Poppins;
         list-style: none;
         text-decoration: none;
+        transition: all 0.3s;
     }
 
     body {
@@ -24,10 +25,13 @@ const GlobalStyle = createGlobalStyle`
         min-height: 100vh;
     }
 
-    a {
+    a, button {
         transition: all .3s;
         :hover {color: var(--primary-color);}
+        cursor: pointer;
     }
+
+    button {outline: none; border: none; }
 
     input:focus { border:none; outline: none;  }
 
@@ -38,6 +42,7 @@ export const Content = styled.div `
     display: flex;
     width: 100%;
     height: 100vh;
+    transition: all .25s linear;
 
 `;
 
@@ -45,7 +50,7 @@ export const Main = styled.main `
 
     width: 100%;
     height: 100%;
-    background-color: #F3F2F7;
+    background: ${props => props.theme.background};
 
 `;
 
@@ -54,9 +59,7 @@ export const Section = styled.section `
     width: 100%;
     max-height: calc(100% - 52px);
     padding: 1.5rem;
-    background-color: #F3F2F7;
+    background: transparent;
     overflow: auto;
 
 `;
-
-export default GlobalStyle;

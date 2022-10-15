@@ -6,7 +6,7 @@ export const VerticalMenu = styled.aside `
     flex-direction: column;
     align-items: center;
     min-width: 205px;
-    background-color: white;
+    background-color: ${props => props.theme.body};
     height: 100%;
 
 `;
@@ -85,17 +85,15 @@ export const NavMenu = styled.div `
 export const NavItem = styled.div `
 
     button {
-        padding: .3rem 0.8rem;
+        width: 100%;
+        padding: .3rem .8rem;
         display: flex;
         align-items: center;
         gap: .8rem;
-        border: none;
-        width: 100%;
         border-radius: 4px;
         font-size: .8rem;
         color: ${props => props.status ? "var(--primary-color)" : "var(--secundary-color)"};
         background-color: ${props => props.status ? "var(--primary-color-opacity)" : "transparent" };
-        cursor: pointer;
     }
 
     button > i {

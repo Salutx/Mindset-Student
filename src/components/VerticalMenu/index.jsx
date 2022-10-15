@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../assets/images/Logo.svg';
+import Logo from '../../assets/images/NewLogo.png';
 import AvatarExample from '../../assets/images/avatarexample.png';
 import { useNavigate } from "react-router-dom";
 import * as C from "./styles.js";
