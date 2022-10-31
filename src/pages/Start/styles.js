@@ -26,16 +26,6 @@ export default createGlobalStyle `
             justify-content: flex-start;
         }
     }
-
-    @media (max-width: 524px) { 
-        br {
-            content: " ";
-        }
-
-        br:after {
-            content: " ";;
-        }
-    }
 `;
 
 export const Main = styled.main `
