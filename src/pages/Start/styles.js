@@ -248,7 +248,6 @@ export const BenefitsContent = styled.h1 `
     font-size: .9rem;
     font-weight: 400;
     line-height: 25px;
-    white-space: nowrap;
 
     @media (max-width: 958px) { 
         text-align: center
