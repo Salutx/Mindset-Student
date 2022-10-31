@@ -3,7 +3,7 @@ import { device } from "../../components/@media-query";
 
 export const LoginContainer = styled.div `
 
-position: fixed;
+    position: fixed;
     width: 100%;
     height: 100%;
     
@@ -29,7 +29,7 @@ export const LoginBody = styled.div `
     flex-direction: column;
     gap: 2rem;
 
-    @media ${device.tablet} {border-radius: 0;}
+    @media ${device.tablet} {border-radius: 0; height: 100vh}
 
 `;
 
