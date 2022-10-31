@@ -23,13 +23,17 @@ body {
     font-size: 10rem;
     line-height: 200px;
     color: var(--primary-color);
+    transition: .2s all;
 }
 
 .error-header p {
     font-size: 1.5rem;
     color: white;
     font-weight: bolder;
+    cursor: pointer;
 }
+
+.error-header p:hover {color: var(--primary-color;}
 
 .error-footer {
     color: white;
