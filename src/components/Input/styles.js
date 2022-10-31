@@ -8,7 +8,7 @@ export const Input = styled.input `
     border-radius: 6px;
     font-size: .8rem;
 
-    background-color: #F1F6F8;
+    background-color: #EDEDED;
     border: none;
 
     ::placeholder {
@@ -23,7 +23,7 @@ export const Label = styled.label `
     color: #6C757D;
     font-size: .7rem;
     font-weight: 600;
-    top: .7rem;
+    top: .5rem;
     left: 1.3rem;
 
 `;
