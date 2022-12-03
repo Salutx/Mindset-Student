@@ -5,12 +5,11 @@ import GlobalStyle from './styles/global';
 import 'remixicon/fonts/remixicon.css'
 
 const App = () => {
-
   return (
-    	<AuthProvider>
-			<GlobalStyle />
-			<RoutesApp />
-    	</AuthProvider>
+    <AuthProvider>
+        <GlobalStyle />
+        <RoutesApp />
+    </AuthProvider>
   );
 };
 

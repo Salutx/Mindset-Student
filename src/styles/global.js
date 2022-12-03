@@ -9,6 +9,7 @@ export default createGlobalStyle`
         --title-color: #426C64;
         --secundary-color: #9799B0;
         --dark-color: #0F1923;
+        --lightred: #FB6483;
         scrollbar-width: auto;
         scrollbar-color: var(--primary-color) #ffffff;
     }
@@ -27,6 +28,10 @@ export default createGlobalStyle`
         background: rgba(0, 0, 0, 0);
     }
 
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {-webkit-appearance: none;}
+    input[type=number] {-moz-appearance: textfield;}
+
     * {
         margin: 0;
         padding: 0;
@@ -38,7 +43,7 @@ export default createGlobalStyle`
     }
 
     body {
-        width: 100vw;
+        width: 100%;
         min-height: 100vh;
         overflow: overlay;
     }
@@ -56,29 +61,36 @@ export default createGlobalStyle`
 
 `;
 
+export const TestLoader = styled.div `
+    position: relative;
+`;
+
 export const Content = styled.div `
 
     display: flex;
     width: 100%;
     height: 100vh;
     transition: all .25s linear;
+    background-color: ${props => props.theme.background};
+    position: relative;
 
 `;
 
 export const Main = styled.main `
 
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
     width: 100%;
     height: 100%;
     background: ${props => props.theme.background};
+    padding: 24px 24px 24px 24px;
 
 `;
 
 export const Section = styled.section `
 
     width: 100%;
-    max-height: calc(100% - 52px);
-    padding: 1.5rem;
+    height: 100%;
     background: transparent;
-    overflow: auto;
-
 `;

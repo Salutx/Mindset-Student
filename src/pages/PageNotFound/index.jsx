@@ -1,9 +1,8 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 import Logo from '../../components/Logo'
-import "./styles.css"
 
-function PageNotFound() {
+const PageNotFound = () => {
     const navigate = useNavigate();
     return (
         <>

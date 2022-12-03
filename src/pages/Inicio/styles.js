@@ -1,136 +1,407 @@
 import styled from "styled-components";
-import WelcomeBackground from "../../assets/images/welcome-background.svg";
+import gradient from "../../assets/images/gradient2.svg"
 
 export const GridLayout = styled.div `
 
     display: grid; 
-    grid-template-columns: 1.3fr 1fr 0.7fr; 
-    grid-template-rows: repeat(3, 1fr); 
-    gap: 1.5rem; 
+    grid-auto-columns: 1fr; 
+    grid-template-columns: 1fr 1fr .7fr; 
+    grid-template-rows: 0.8fr 1fr 1fr; 
+    gap: 24px 24px; 
+    height: 100%;
     grid-template-areas: 
-      "welcome-area gadgets-area gadgets-area"
-      "tasks-area tasks-area user-area"
-      "teams-area teams-area user-area"; 
+        "welcome-area welcome-area info-area"
+        "welcome-area welcome-area info-area"
+        "tarefas-area frequency-area info-area";
+
+    .videoplayer video {object-fit: cover !important;}
 
     .section {
-        background-color: ${props => props.theme.card};
-        border-radius: 4px;
+        border-radius: 8px;
         padding: 2rem;
+        gap: 1rem;
+        box-shadow: ${props => props.theme.boxShadowCard};
+        background-color: ${props => props.theme.background};
     }
-
+    
+    @media (max-width: 1280px) { 
+        display: flex !important;
+        flex-direction: column;
+        gap: 24px;
+    }
 `;
 
 export const WelcomeArea = styled.div `
 
     grid-area: welcome-area; 
-    width: 100%;
-    height: 100%;
-    background-image: url(${WelcomeBackground});
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem !important;
+    padding: 0 !important;
+    outline: 1px solid #2F3037;
+    overflow: hidden;
+`;
+
+export const WelcomeHeader = styled.div `
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+`;
+
+export const WelcomeTitle = styled.div `
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+
+    h1 {
+        font-size: 24px;
+        color: ${props => props.theme.titleAssets};
+    }
+
+    P {
+        font-size: 12px;
+        color: ${props => props.theme.paragraph};
+    }
+`;
+
+export const WelcomeBrand = styled.div `
+    width: 200px;
+    height: 75px;
+    background-image: url(${props => props.theme.banner});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+`;
+
+export const WelcomeInfo = styled.div `
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    border-radius: 4px !important;
+`;
+
+export const InfoSection = styled.div `
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: flex-end;
+    gap: .5rem;
+`;
+
+export const InfoTitle = styled.p `
+    font-size: 12px;
+    font-weight: 600;
+    color: ${props => props.theme.paragraph};;
+`;
+
+export const InfoAreaContent = styled.div `
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+`;
+
+export const InfoAreaItem = styled.div `
+    display: flex;
+    flex-direction: column;
+`;
+
+export const InfoButton = styled.button `
+    background-color: var(--primary-color-dark);
+    display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 5px 15px;
+    gap: 10px;
+    border-radius: 4px;
     color: white;
+    font-size: 12px;
 
+    i {font-size: 16px;}
+    :hover {background-color: var(--primary-color);}
 `;
 
-export const GadgetsArea = styled.div `
-
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 1fr; 
-    gap: 1.5rem; 
-    grid-template-areas: 
-        ". ."; 
-    grid-area: gadgets-area; 
-
+export const InfoMembers = styled.div `
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: ${props => props.theme.titleAssets};;
+    font-size: 10px;
 `;
 
-export const TasksArea = styled.div `
+export const MembersList = styled.div ``;
+export const MembersLabel = styled.div ``;
 
-    grid-area: tasks-area;
+// Tarefas
 
-`
+export const TarefasArea = styled.div `
+    grid-area: tarefas-area; 
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+`;
 
-export const UserArea = styled.div `
+export const TarefasContainer = styled.div ``;
 
-    grid-area: user-area;
+export const SectionHeader = styled.div `
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;
 
-`
+export const SectionTitle = styled.div `
+    display: flex;
+    align-items: center;
+    gap: .8rem;
 
-export const TeamsArea = styled.div `
+    > i {
+        background-color: var(--primary-color-opacity);
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-color);
+        border-radius: 4px;
+    }
+`;
 
-    grid-area: teams-area;
+export const SectionInfo = styled.div `
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: 13px;
+    color: ${props => props.theme.titleAssets};
+    font-weight: 500;
 
-`
+    > i {color: ${props => props.theme.paragraph};}
+`;
 
-// gadgets
+export const SectionButton = styled.button `
+    display: flex;
+    align-items: center;
+    color: ${props => props.theme.titleAssets};
+    background-color: transparent;
+    justify-content: center;
+    gap: .3rem;
 
-export const GadgetsContainer = styled.div `
+    i {font-size: 18px;}
+    :hover {
+        background-color: transparent;
+        color: var(--primary-color);
+    }
+`;
 
-    width: 100%;
+// Info Area
+
+export const InfoArea = styled.div `
+    background-color: ${props => props.theme.card} !important;
+    position: relative;
+    grid-area: info-area; 
+    display: flex;
+    flex-direction: column;
     background-color: white;
     border-radius: 4px;
-    display: flex;
+    height: 100%;
     overflow: auto;
-
-    :last-child div:first-child {
-        background-color: #fdf5c5; 
-        color: #F47111;
-    }
-
 `;
 
-export const GadgetsIcon = styled.div `
+export const InfoContainer = styled.div `
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding-bottom: 4rem;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -3rem;
+    gap: .5rem;
+`;
+
+export const InfoAreaBackground = styled.div `
+    width: 100%;
+    background: url(${gradient});
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: #c5f6fd;
-    width: 25%;
-    font-size: 20px;
-    color: #00B2FF;
-
-
+    flex-direction: column;
+    padding-top: 1.5rem;
 `;
 
-export const GadgetsMain = styled.div `
+export const InfoAreaFooter = styled.div `
+    width: 100%;
+    background: url(${gradient});
+    height: 35px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+`;
 
+export const IdCardAvatar = styled.div `
+    img {
+        object-fit: cover;
+        border-radius: 64px;
+        outline: 3px solid ${props => props.theme.card};
+        width: 92px;
+        height: 92px;
+    }
+`;
+
+export const IdCardContent = styled.div `
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+`;
+
+export const IdCardHeader = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 75%;
-    padding: 2rem 0;
-    background: ${props => props.theme.card};
+    gap: .2rem;
 
     h1 {
-        font-size: 1.1rem;
-        color: ${props => props.theme.title};
+        font-weight: 600;
+        font-size: 18px;
+        color: ${props => props.theme.titleAssets};
+        text-transform: uppercase; 
+    }
+
+    span {color: var(--primary-color);}
+
+    p {
+        font-size: 10px;
+        font-weight: bold;
+        color: white;
+        background-color: var(--primary-color);
+        padding: .1rem 1.3rem;
+        border-radius: 32px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
+    }
+`;
+
+export const IdCardBody = styled.div `
+    display: flex;
+    gap: .5rem;
+    justify-content: space-between;
+`;
+
+export const IdCardColumn = styled.div `
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    width: 50%;
+
+    :first-child {text-align: right;}
+`;
+
+export const IdCardItem = styled.div `
+    h1 {
+        color: ${props => props.theme.titleAssets};
+        font-weight: 600;
+    }
+
+    h1, p {font-size: 13px;}
+
+    p {
+        color: ${props => props.theme.paragraph};
         font-weight: 500;
     }
+`;
 
-    .counter {
-        font-size: 1.7rem;
-        margin-top: .3rem;
-        font-weight: 600;
-        color: var(--primary-color);
+export const IdCardQrcode = styled.div `
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center; 
+    font-size: 12px;
+    font-weight: bold;
+    gap: .5rem;
+    color: ${props => props.theme.titleAssets};
+
+    img {
+        width: 128px;
+        height: 128px;
     }
+`;
 
-    .priority {
-        font-size: .7rem;
-        margin-top: .3rem;
-        padding: .2rem 1rem;
-        border-radius: 20px;
-        border: 1px solid transparent;
+export const UserItem = styled.div `
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 205, 180, 0.1);
+    border-radius: 4px;
+    padding: .7rem 1.3rem;
+    color: white;
+`;
+
+export const UserName = styled.div `
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    color: #CBCBCB;
+  
+    i {font-size: 6px;}
+`;
+
+export const btnUser = styled.button `
+    display: flex;
+    align-items: center;
+    background-color: transparent !important;
+    color: white;
+    font-size: 1.3rem;
+`;
+
+// Frequency Area
+export const FrequencyArea = styled.div `
+    grid-area: frequency-area;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+`;
+
+export const FrequencyContainer = styled.div ``;
+
+// Support Area
+
+export const SupportArea = styled.div `
+    grid-area: support-area; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: ${props => props.theme.titleAssets};
+    gap: 24px !important;
+
+    button {
+        color: ${props => props.theme.titleAssets} !important;
+        border: 1px solid ${props => props.theme.titleAssets} !important;
     }
+`;
 
-    .normal {
-        background-color: var(--primary-color-opacity);
-        color: var(--primary-color);
+export const AdminSections = styled.div `
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 1.5rem;
+
+    justify-content: space-between;
+
+    > div {max-height: 100%}
+    > div:first-child {
+        width: 40%;
+        box-shadow: ${props => props.theme.boxShadowCard};
     }
-
 `;

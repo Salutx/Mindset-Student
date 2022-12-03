@@ -1,13 +1,15 @@
 import { Fragment } from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate  } from "react-router-dom";
 import { ThemeContextProvider } from "../contexts/theme.js";
 import useAuth from "../hooks/useAuth.js";
 import Inicio from "../pages/Inicio";
 import Start from "../pages/Start";
-import Cadastrar from "../pages/Cadastrar/";
 import Equipes from "../pages/Equipes";
-import Usuarios from "../pages/Usuarios/";
 import PageNotFound from "../pages/PageNotFound/";
+import Test from "../pages/Test/index.jsx";
+import Students from "../pages/Students/index.jsx";
+import Teachers from "../pages/Teachers/index.jsx";
+import PermissionGate from '../hooks/permissionGate';
 
 const Private = ({ Item }) => {
     const { signed } = useAuth();
@@ -23,13 +25,52 @@ const RoutesApp = () => {
                         {/* Global Routes */}
                         <Route path="/start"     element={<Start />} />
                         <Route path="/"          element={<Navigate to="/start" />} />
-                        <Route path="*"          element={<Navigate to="/404" />} />
+                        <Route path="*" element={
+                            <>
+                                <PermissionGate permissions={['Aluno', 'Professor']}>
+                                    <Navigate to="/dashboard" />
+                                </PermissionGate>
+                                <PermissionGate permissions={['Admin']}>
+                                    <Navigate to="/students" />
+                                </PermissionGate>
+                            </>
+                        } />
 
                         {/* Pages Routes */}
-                        <Route exact path="/inicio"    element={<Private Item={Inicio} />} />
-                        <Route exact path="/cadastrar" element={<Cadastrar />} />
+                        <Route exact path="/dashboard" element={
+                            <>
+                                <PermissionGate permissions={['Aluno', 'Professor']}>
+                                    <Private Item={Inicio} />
+                                </PermissionGate>
+                                <PermissionGate permissions={['Admin']}>
+                                    <Navigate to="/students" />
+                                </PermissionGate>
+                            </>
+                        } />
+
+                        <Route exact path="/students" element={
+                            <>
+                                <PermissionGate permissions={['Aluno', 'Professor']}>
+                                    <Navigate to="/dashboard" />
+                                </PermissionGate>
+                                <PermissionGate permissions={['Admin']}>
+                                    <Private Item={Students} />
+                                </PermissionGate>
+                            </>
+                        } />
+
+                        <Route exact path="/teachers" element={
+                            <>
+                                <PermissionGate permissions={['Aluno', 'Professor']}>
+                                    <Navigate to="/dashboard" />
+                                </PermissionGate>
+                                <PermissionGate permissions={['Admin']}>
+                                    <Private Item={Teachers} />
+                                </PermissionGate>
+                            </>
+                        } />
+
                         <Route exact path="/equipes"   element={<Private Item={Equipes} />} />
-                        <Route exact path="/usuarios"  element={<Usuarios />} />
                         <Route exact path="/404"       element={<PageNotFound />} />
                     </Routes>
                 </ThemeContextProvider>
